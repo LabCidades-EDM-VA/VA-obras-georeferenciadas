@@ -2,6 +2,9 @@ import os
 import csv
 import gspread
 from config import Config
+from coleta.download_dados import *
+from tratamento.tratamento import *
+from processamento.processamento import *
 
 def download_planilhas_obras_google_sheets():
     # Diretório para salvar os arquivos CSV
@@ -72,3 +75,31 @@ def download_planilhas_obras_google_sheets():
         )
 
     return 'Planilhas baixadas e salvas como CSV com sucesso!'
+
+
+# 
+
+
+def obtem_dados():
+    print("Iniciando...")
+
+    # Baixa planilhas direto do google sheets
+    download_planilhas_obras_google_sheets()
+
+    print("Iniciando downloads...")
+    
+    download_limites_municipios()
+    download_distritos_ES()
+    download_bairros_ES()
+
+    print("Iniciando tratamento dos dados...")
+
+    obter_limite_municipio_vargem_alta()
+    obter_distritos_vargem_alta()
+    obter_bairros_vargem_alta()
+
+    print("Iniciando processamento dos dados...")
+
+    obter_gdf_contratos()
+    obter_percentual_pagamento_contratos()
+    obter_empenhos_liquidacoes()

@@ -1,8 +1,8 @@
 # app.py
 
-from src import create_app
-
 # Função principal para rodar o aplicativo
+from app import create_app
+
 def main():
     # Cria o app usando a função create_app
     app = create_app()
