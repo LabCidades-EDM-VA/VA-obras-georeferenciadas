@@ -501,9 +501,8 @@ def server(input, output, session):
 
 from asgiref.wsgi import WsgiToAsgi
 
+# src/exibicao/exibicao.py
 def roda_app(scope=None, receive=None, send=None):
-    # Cria o app sem iniciar o servidor automaticamente
-    app = App(obter_app_ui(), server)
-    # Em vez de chamar app.run(), retorna o app encapsulado para ASGI
-    return WsgiToAsgi(app)
+    return App(obter_app_ui(), server)
+
 
