@@ -1,11 +1,14 @@
-from src.exibicao.exibicao import roda_app
-import subprocess
+# app.py
 
+from src import create_app
+
+# Função principal para rodar o aplicativo
 def main():
-    # Executa o comando "python ../main.py < input.txt" para baixar os dados necessários antes de iniciar o app
-    subprocess.run("python src/main.py < input.txt", shell=True)
+    # Cria o app usando a função create_app
+    app = create_app()
     
-    roda_app()
+    # Inicia o app
+    app()
 
 # Bloco principal
 if __name__ == "__main__":
