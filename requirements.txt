@@ -13,3 +13,6 @@ requests
 scipy
 gspread
 python-dotenv
+asgiref
+shiny
+uvicorn

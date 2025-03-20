@@ -499,8 +499,11 @@ def server(input, output, session):
         return ui.HTML(mapa_html)
     
 
+from asgiref.wsgi import WsgiToAsgi
+
 def roda_app(scope=None, receive=None, send=None):
-    # Criar o app
-    # Em produção, não inicia o servidor automaticamente.
-    # Retornar apenas o objeto app (ASGI callable)
-    return App(obter_app_ui(), server)
+    # Cria o app sem iniciar o servidor automaticamente
+    app = App(obter_app_ui(), server)
+    # Em vez de chamar app.run(), retorna o app encapsulado para ASGI
+    return WsgiToAsgi(app)
+

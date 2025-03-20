@@ -1,12 +1,12 @@
 # app.py
 
-from app import create_app
+from app import create_app  # Certifique-se de que o caminho está correto
 
-# Cria o app e expõe-o para o deploy
+# Cria o app e o expõe como variável global
 app = create_app()
 
 if __name__ == "__main__":
-    # Para testes locais, inicia o app.
-    # OBS.: app.run() (ou app()) internamente chama uvicorn.run, que usa asyncio.run,
-    # o que pode dar erro se já houver um loop de eventos. Para testes locais, isso normalmente funciona.
-    app.run()
+    # Para testes locais, podemos iniciar o servidor ASGI
+    from asgiref.wsgi import WsgiToAsgi
+    import uvicorn
+    uvicorn.run(WsgiToAsgi(app), host="127.0.0.1", port=8000)
