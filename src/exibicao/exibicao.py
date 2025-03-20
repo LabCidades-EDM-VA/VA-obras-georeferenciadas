@@ -441,7 +441,7 @@ def criar_mapa():
 # App
 def obter_app_ui():
     # Definir a interface do Shiny
-    app_ui = ui.page_fluid(
+    return ui.page_fluid(
 
         # Definir estilo global para o body para remover margens e paddings
         ui.tags.style("""
@@ -488,7 +488,6 @@ def obter_app_ui():
             style="height: 5vh; width: 100vw; background-color: #6D6E70; display: flex; justify-content: center; align-items: center; position: fixed; bottom: 0; margin: 0;"
         )
     )
-    return app_ui
 
 # Definir o servidor
 def server(input, output, session):

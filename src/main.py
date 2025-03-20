@@ -6,11 +6,10 @@ from utils import download_planilhas_obras_google_sheets
 def ask_for_download():
     while True:
         answer = input("Deseja fazer o download dos dados? (sim/nao): ").lower()
-        if answer in ['sim', 'nao']:
-            if(answer == 'sim'):
-                return True
-            else:
-                return False
+        if answer == 'sim':
+            return True
+        elif answer == 'nao':
+            return False
         else:
             print("Por favor, responda com 'sim' ou 'não'.")
 
@@ -18,11 +17,10 @@ def ask_for_download():
 def ask_for_tratamento():
     while True:
         answer = input("Deseja fazer o tratamento dos dados? (sim/nao): ").lower()
-        if answer in ['sim', 'nao']:
-            if(answer == 'sim'):
-                return True
-            else:
-                return False
+        if answer == 'sim':
+            return True
+        elif answer == 'nao':
+            return False
         else:
             print("Por favor, responda com 'sim' ou 'não'.")
 
@@ -30,11 +28,10 @@ def ask_for_tratamento():
 def ask_for_process():
     while True:
         answer = input("Deseja fazer o processamento dos dados? (sim/nao): ").lower()
-        if answer in ['sim', 'nao']:
-            if(answer == 'sim'):
-                return True
-            else:
-                return False
+        if answer == 'sim':
+            return True
+        if answer == 'nao':
+            return False
         else:
             print("Por favor, responda com 'sim' ou 'não'.")
 
