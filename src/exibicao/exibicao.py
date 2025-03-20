@@ -501,7 +501,6 @@ def server(input, output, session):
 
 def roda_app(scope=None, receive=None, send=None):
     # Criar o app
-    app = App(obter_app_ui(), server)
-
-    # Rodar o app
-    app.run()
+    # Em produção, não inicia o servidor automaticamente.
+    # Retornar apenas o objeto app (ASGI callable)
+    return App(obter_app_ui(), server)
