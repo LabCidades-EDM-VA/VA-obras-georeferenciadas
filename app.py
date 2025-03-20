@@ -1,5 +1,5 @@
 # app.py
-from app import create_app  # ajuste o caminho conforme sua estrutura
+from src.app import create_app  # ajuste o caminho conforme sua estrutura
 
 # Cria o app e o expõe para o deploy
 app = create_app()

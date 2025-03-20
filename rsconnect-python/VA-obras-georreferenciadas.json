@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "C:\\Users\\conta\\OneDrive\\\u00c1rea de Trabalho\\Thales\\GitHub\\VA-obras-georreferenciadas",
+        "app_url": "https://edm-vargem-alta.shinyapps.io/va-obras-georreferenciadas1/",
+        "app_id": 14291596,
+        "app_guid": null,
+        "title": "va-obras-georreferenciadas",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}

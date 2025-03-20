@@ -13,4 +13,4 @@ def create_app():
     obtem_dados()
     
     # Retorna a função do app para rodar
-    return roda_app
+    return roda_app()

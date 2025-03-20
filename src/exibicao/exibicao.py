@@ -499,10 +499,6 @@ def server(input, output, session):
         return ui.HTML(mapa_html)
     
 
-from asgiref.wsgi import WsgiToAsgi
-
 # src/exibicao/exibicao.py
 def roda_app(scope=None, receive=None, send=None):
     return App(obter_app_ui(), server)
-
-
