@@ -1,0 +1,15 @@
+shiny
+folium
+geopandas
+osmnx
+networkx
+matplotlib
+pandas
+shapely
+numpy
+pandas
+pyarrow
+requests
+scipy
+gspread
+python-dotenv
