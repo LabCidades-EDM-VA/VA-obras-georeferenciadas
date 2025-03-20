@@ -20,7 +20,7 @@ def criar_mapa():
         return f"{valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
     def formatar_valor_br_sem_casas_decimais(valor):
-        return f"{int(valor):,}".replace(",", ".")
+        return f"{valor:,.0f}".replace(",", ".")
 
 
     def build_listagem_liquidacoes(empenhos):
@@ -120,27 +120,27 @@ def criar_mapa():
 
         ax.set_ylim(0, max_val * 1.2)  # adiciona 20% de margem
 
-        percentualPago = float(row['percentualTotalPago'])
-        count = 0
+        percentualPago = int(row['percentualTotalPago'])
+        count = 0 # com o count, sabemos que if count == 0, então é a barra de valor de obra, if count == 1, é barra de valor liquidado
         for barra in barras:
             altura = barra.get_height()
-            if count != 1:
+            if count != 1: # para mexer apenas na barra de valor de obra
                 # Valor total obra em cima da barra
                 ax.annotate(f'R$ {formatar_valor_br_sem_casas_decimais(altura)}',
                             xy=(barra.get_x() + barra.get_width()/2, altura),
                             xytext=(0, 7),  # desloca 7 pontos para cima
                             textcoords='offset points',
                             ha='center', va='bottom', fontsize=10)
-            else:
+            else: # para mexer na barra de valor liquidado
                 # Valor Liquidado total em cima da barra
-                ax.annotate(f'R$ {formatar_valor_br_sem_casas_decimais(altura)} ({percentualPago:.0f}%)',
+                ax.annotate(f'R$ {formatar_valor_br_sem_casas_decimais(altura)} ({percentualPago}%)',
                             xy=(barra.get_x() + barra.get_width()/2, altura),
                             xytext=(0, 7),  # desloca 7 pontos para cima
                             textcoords='offset points',
                             ha='center', va='bottom', fontsize=10)
-                if percentualPago >= 30:
+                if percentualPago >= 30: # apenas imprimimos porcentagem dentro da barra se ela for >=30%
                     # Porcentagem dentro da barra
-                    ax.annotate(f'{percentualPago:.0f}%',
+                    ax.annotate(f'{percentualPago}%',
                                 xy=(barra.get_x() + barra.get_width()/2, altura),
                                 xytext=(3, -35),  # desloca 3 pontos para direita e 35 pontos para baixo
                                 textcoords='offset points',
