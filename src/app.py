@@ -1,15 +1,12 @@
 # app.py
 
-# Função principal para rodar o aplicativo
 from app import create_app
 
-def main():
-    # Cria o app usando a função create_app
-    app = create_app()
-    
-    # Inicia o app
-    app()
+# Cria o app e expõe-o para o deploy
+app = create_app()
 
-# Bloco principal
 if __name__ == "__main__":
-    main()
+    # Para testes locais, inicia o app.
+    # OBS.: app.run() (ou app()) internamente chama uvicorn.run, que usa asyncio.run,
+    # o que pode dar erro se já houver um loop de eventos. Para testes locais, isso normalmente funciona.
+    app.run()
