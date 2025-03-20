@@ -83,6 +83,11 @@ def download_planilhas_obras_google_sheets():
 def obtem_dados():
     print("Iniciando...")
 
+    # Criar diretórios para salvar os dados caso não existam
+    os.makedirs(os.path.join("..", "dados", "dados_baixados"), exist_ok=True)
+    os.makedirs(os.path.join("..", "dados", "dados_tratados"), exist_ok=True)
+    os.makedirs(os.path.join("..", "dados", "dados_processados"), exist_ok=True)
+
     # Baixa planilhas direto do google sheets
     download_planilhas_obras_google_sheets()
 
