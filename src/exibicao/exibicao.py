@@ -498,7 +498,8 @@ def server(input, output, session):
         mapa_html = mapa._repr_html_()
         return ui.HTML(mapa_html)
     
-def roda_app():
+
+def roda_app(scope=None, receive=None, send=None):
     # Criar o app
     app = App(obter_app_ui(), server)
 
