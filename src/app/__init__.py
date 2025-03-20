@@ -1,6 +1,10 @@
 # src/__init__.py
-from exibicao.exibicao import roda_app
 from utils import obtem_dados
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../exibicao')))
+from exibicao import roda_app
 
 def create_app():
 
